@@ -7,7 +7,14 @@ public class Odometer {
 	private static final int LAST_DIGIT = 9;
 	private ArrayList<Integer> listOfNumbers;
 	private char[] number;
+	private int numberOfDigits;
 
+	public Odometer(int numberOfDigits) {
+		this.numberOfDigits = numberOfDigits;
+		findNumbers(numberOfDigits);
+	}
+	
+	
 	public ArrayList<Integer> findNumbers(int numberOfDigits) {
 		number = new char[numberOfDigits];
 		listOfNumbers = new ArrayList<Integer>();
@@ -38,5 +45,19 @@ public class Odometer {
 	{
 		int index = listOfNumbers.indexOf(value);
 		return listOfNumbers.get((index+1)%listOfNumbers.size());
+	}
+	
+	public int previousValue(int value)
+	{
+		int index = listOfNumbers.indexOf(value);
+		if(index == 0)
+		{
+			index = listOfNumbers.size()-1;
+		}
+		else
+		{
+			index = index - 1;
+		}
+		return listOfNumbers.get(index);
 	}
 }
