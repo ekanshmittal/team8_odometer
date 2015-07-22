@@ -7,15 +7,12 @@ class Odometer
 	private ArrayList<Integer> valueList = new ArrayList<Integer>();
 	private static int NUM_LENGTH;
 	private static int INIT_VALUE;
+	
 	public Odometer(String inputValue) {
 		NUM_LENGTH = inputValue.length();
 		INIT_VALUE = findInitialValue(NUM_LENGTH);
 	}
 
-	public void printInitialValue()
-	{
-		System.out.println(INIT_VALUE);
-	}
 	public static int findInitialValue(int length)
 	{
 		int init = 0;
@@ -25,6 +22,11 @@ class Odometer
 			init += Math.pow(10, i) * (count++);
 		}
 		return init;
+	}
+
+	public void printInitialValue()
+	{
+		System.out.println(INIT_VALUE);
 	}
 
 	public static int getIncrement(String value)
